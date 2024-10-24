@@ -84,7 +84,7 @@ public class PacientSymptomGUI extends JFrame {
 				
 			} else errorLabel.setText("ERROR, Weight between [1..3]");
 				
-			}
+			}//jdfaldf
 		});
 		btnNewButton.setBounds(88, 202, 117, 29);
 		contentPane.add(btnNewButton);
