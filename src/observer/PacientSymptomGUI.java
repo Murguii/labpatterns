@@ -75,6 +75,7 @@ public class PacientSymptomGUI extends JFrame {
 		JButton btnNewButton = new JButton("Add Symptom");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				p.addSymptomByName(((Symptom)symptomComboBox.getSelectedItem()).getName(),Integer.parseInt(weightField.getText()));
 				errorLabel.setText(" ");
 				if (new Integer(weightField.getText())<=3) {
 		    	System.out.println("Symptom added :"+(Symptom)symptomComboBox.getSelectedItem());
@@ -91,6 +92,7 @@ public class PacientSymptomGUI extends JFrame {
 		btnRemoveSymptom = new JButton("Remove Symptom");
 		btnRemoveSymptom.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				p.removeSymptomByName(((Symptom)symptomComboBox.getSelectedItem()).getName());
 				errorLabel.setText(" ");
 
 		    	System.out.println("Symptom removed :"+(Symptom)symptomComboBox.getSelectedItem());
