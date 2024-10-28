@@ -1,7 +1,6 @@
 package observer;
 
 import java.util.Observable;
-
 public interface Observer {
-	public void update(Observable	o,	Object	arg);
+	public void update(Observable observable,	Object	arg);
 }

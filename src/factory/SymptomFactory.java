@@ -9,6 +9,10 @@ import domain.RespiratorySymptom;
 import domain.*;
 
 public class SymptomFactory {
+	
+	public SymptomFactory() {
+		
+	}
 
 	public Symptom createSymptom(String symptomName) {
 		List<String> impact5 = Arrays.asList("fiebre", "tos seca", "astenia","expectoracion");
