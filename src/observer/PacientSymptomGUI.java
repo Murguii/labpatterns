@@ -25,7 +25,7 @@ public class PacientSymptomGUI extends JFrame {
 	private JLabel lblPacient;
 	private JLabel labelPacient;
 
-	
+	//coment
 	/**
 	 * Create the frame.
 	 */
