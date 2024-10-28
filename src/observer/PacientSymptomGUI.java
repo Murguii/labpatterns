@@ -25,7 +25,7 @@ public class PacientSymptomGUI extends JFrame {
 	private JLabel lblPacient;
 	private JLabel labelPacient;
 
-	
+	//coment
 	/**
 	 * Create the frame.
 	 */
@@ -81,6 +81,7 @@ public class PacientSymptomGUI extends JFrame {
 		    	System.out.println("Symptom added :"+(Symptom)symptomComboBox.getSelectedItem());
 
 				//addSymptomByName ...
+		    	//coment
 				
 			} else errorLabel.setText("ERROR, Weight between [1..3]");
 				
