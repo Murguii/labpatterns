@@ -8,7 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import observer.Covid19Pacient;
+import observer.Covid19PacientObs;
 import domain.Symptom;
 
 import javax.swing.JLabel;
@@ -33,12 +33,12 @@ public class PacientObserverGUI extends JFrame implements Observer{
 		symptomLabel.setBounds(19, 38, 389, 199);
 		contentPane.add(symptomLabel);
 		symptomLabel.setText("Still no symptoms");
-		this.setVisible(true);
 		obs.addObserver(this);
+		this.setVisible(true);
 	}
 	
 	public void update(Observable	o,	Object	arg) {
-		Covid19Pacient	p=(Covid19Pacient)o;
+		Covid19PacientObs	p=(Covid19PacientObs)o;
 		 String	s="<html>	Pacient: <b>"+p.getName()+"</b>	<br>";
 		 s=s+"Covid impact:	<b>"+p.covidImpact()+"</b><br><br>";
 		 s=s+" _____________________	<br>	Symptoms:	<br>";
@@ -51,6 +51,7 @@ public class PacientObserverGUI extends JFrame implements Observer{
 				s=s+"</html>";
 				symptomLabel.setText(s);
 }
+	
 	
 
 }

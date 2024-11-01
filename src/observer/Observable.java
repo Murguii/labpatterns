@@ -15,7 +15,7 @@ public class Observable {
 	public void setChanged() {
 		//changed = true;
 	}
-	
+	//
 	public void addObserver(Object o) {
 		//observers.add((Observer) o);
 	}

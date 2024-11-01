@@ -29,7 +29,7 @@ public class PacientSymptomGUI extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public PacientSymptomGUI(Covid19Pacient pacient) {
+	public PacientSymptomGUI(Covid19PacientObs pacient) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(200, 100, 450, 300);
 		contentPane = new JPanel();
@@ -43,22 +43,22 @@ public class PacientSymptomGUI extends JFrame {
 		
 		symptomComboBox = new JComboBox<Symptom>();
 		symptomComboBox.setBounds(195, 57, 192, 27);
-		symptomComboBox.addItem(NeuroMuscularSymptom.getInstance("fiebre",100,5));
-		symptomComboBox.addItem(RespiratorySymptom.getInstance("tos seca",100,5));
-		symptomComboBox.addItem(NeuroMuscularSymptom.getInstance("astenia",100,5));
-		symptomComboBox.addItem(RespiratorySymptom.getInstance("expectoracion",100,5));
+		symptomComboBox.addItem(new Symptom("fiebre",100,5));
+		symptomComboBox.addItem(new Symptom("tos seca",100,5));
+		symptomComboBox.addItem(new Symptom("astenia",100,5));
+		symptomComboBox.addItem(new Symptom("expectoracion",100,5));
 		
-		symptomComboBox.addItem(RespiratorySymptom.getInstance("disnea",100,3));
-		symptomComboBox.addItem(NeuroMuscularSymptom.getInstance("dolor de garganta",100,3));
-		symptomComboBox.addItem(NeuroMuscularSymptom.getInstance("cefalea",100,3));
-		symptomComboBox.addItem(NeuroMuscularSymptom.getInstance("mialgia",100,3));
-		symptomComboBox.addItem(NeuroMuscularSymptom.getInstance("escalofríos",100,3));
+		symptomComboBox.addItem(new Symptom("disnea",100,3));
+		symptomComboBox.addItem(new Symptom("dolor de garganta",100,3));
+		symptomComboBox.addItem(new Symptom("cefalea",100,3));
+		symptomComboBox.addItem(new Symptom("mialgia",100,3));
+		symptomComboBox.addItem(new Symptom("escalofríos",100,3));
 
-		symptomComboBox.addItem(DigestiveSymptom.getInstance("náuseas o vómitos",100,1));
-		symptomComboBox.addItem(RespiratorySymptom.getInstance("congestión nasal",100,1));
-		symptomComboBox.addItem(DigestiveSymptom.getInstance("diarrea",100,1));
-		symptomComboBox.addItem(RespiratorySymptom.getInstance("hemoptisis",100,1));
-		symptomComboBox.addItem(RespiratorySymptom.getInstance("congestión conjuntival",100,1));
+		symptomComboBox.addItem(new Symptom("náuseas o vómitos",100,1));
+		symptomComboBox.addItem(new Symptom("congestión nasal",100,1));
+		symptomComboBox.addItem(new Symptom("diarrea",100,1));
+		symptomComboBox.addItem(new Symptom("hemoptisis",100,1));
+		symptomComboBox.addItem(new Symptom("congestión conjuntival",100,1));
 		
 		
 		contentPane.add(symptomComboBox);
