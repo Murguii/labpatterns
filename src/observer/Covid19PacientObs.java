@@ -20,7 +20,7 @@ public class Covid19PacientObs extends Observable {
 	public Covid19PacientObs(String name, int years) {
 		this.name = name;
 		this.age = years;
-		this.sf = new SymptomFactory();
+		this.sf = SymptomFactory.getInstance();
 	} //
 	
 	public String getName() {

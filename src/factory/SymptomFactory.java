@@ -1,6 +1,7 @@
 package factory;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 import domain.DigestiveSymptom;
@@ -10,11 +11,25 @@ import domain.*;
 
 public class SymptomFactory {
 	
-	public SymptomFactory() {
-		
+	private static SymptomFactory instance;
+	private HashMap<String, Symptom> symptomsRegistered = new HashMap<String, Symptom>();
+	
+	private SymptomFactory() {
 	}
+	
+	public static SymptomFactory getInstance() {
+        if (instance == null) {
+            instance = new SymptomFactory();
+        }
+        return instance;
+    }
+	
 
 	public Symptom createSymptom(String symptomName) {
+		
+		if (symptomsRegistered.containsKey(symptomName)) return symptomsRegistered.get(symptomName);
+		
+		
 		List<String> impact5 = Arrays.asList("fiebre", "tos seca", "astenia","expectoracion");
 	    List<Double> index5 = Arrays.asList(87.9, 67.7, 38.1, 33.4);
 	    List<String> impact3 = Arrays.asList("disnea", "dolor de garganta", "cefalea","mialgia","escalofrios");
@@ -32,13 +47,18 @@ public class SymptomFactory {
 	    if (impact5.contains(symptomName)) {impact=5; index= index5.get(impact5.indexOf(symptomName));}
 	      else if (impact3.contains(symptomName)) {impact=3;index= index3.get(impact3.indexOf(symptomName));}
 	        else if (impact1.contains(symptomName)) {impact=1; index= index1.get(impact1.indexOf(symptomName));}
-	 
+	    
+	 Symptom symptom = null;
+	    
 	    if (impact!=0)  {
-	    	if (digestiveSymptom.contains(symptomName)) return DigestiveSymptom.getInstance(symptomName,(int)index, impact);
-	    	if (neuroMuscularSymptom.contains(symptomName)) return NeuroMuscularSymptom.getInstance(symptomName,(int)index, impact);
-	    	if (respiratorySymptom.contains(symptomName)) return RespiratorySymptom.getInstance(symptomName,(int)index, impact);
+	    	if (digestiveSymptom.contains(symptomName)) symptom = new DigestiveSymptom(symptomName,(int)index, impact);
+	    	if (neuroMuscularSymptom.contains(symptomName)) symptom = new NeuroMuscularSymptom(symptomName,(int)index, impact);
+	    	if (respiratorySymptom.contains(symptomName)) symptom = new  RespiratorySymptom(symptomName,(int)index, impact);
 	    }
-	    return null;
+	    
+	    if (symptom != null) symptomsRegistered.put(symptomName, symptom);
+	    
+	    return symptom;
 		
 	}
 }
