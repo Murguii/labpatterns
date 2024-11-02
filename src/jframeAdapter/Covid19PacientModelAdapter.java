@@ -4,16 +4,18 @@ import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
 
+import adapter.InvertedIterator;
 import domain.Covid19Pacient;
 import domain.Symptom;
 
 
 
-public class Covid19PacientModelAdapter extends AbstractTableModel {
+public class Covid19PacientModelAdapter extends AbstractTableModel implements InvertedIterator{
 
     private final List<Symptom> symptoms;
     private Covid19Pacient pacient;
     private String[] colNames = new String[] {"symptom", "severity"};
+    private int indActual;
     
     
     public Covid19PacientModelAdapter(Covid19Pacient p) {
@@ -47,4 +49,25 @@ public class Covid19PacientModelAdapter extends AbstractTableModel {
     }
        return null;
    }
+
+	@Override
+	public Object previous() {
+		if(this.hasPrevious()) {
+		Symptom symptom = symptoms.get(indActual);
+		indActual--;
+		return symptom;
+		}
+		return null;
+	}
+
+	@Override
+	public boolean hasPrevious() {
+		return indActual>=0;
+	}
+
+	@Override
+	public void goLast() {
+		indActual = symptoms.size() - 1;
+		
+	}
 }
